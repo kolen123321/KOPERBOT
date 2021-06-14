@@ -16,7 +16,9 @@ class Verify(commands.Cog):
     async def on_raw_reaction_add(self, reaction):
         if reaction.message_id == self.config['verify']['message_id']:
             if reaction.emoji.name == self.config['verify']['reaction']:
-                await reaction.member.send("Привет, я бот регистрации в системе Koper Verify для того что бы зарегестрироваться придумай пароль и отправь его мне")
+                embed=discord.Embed(color=0x0be541)
+                embed.add_field(name="Koper Verify", value="Привет, я бот регистрации в системе Koper Verify для того что бы зарегестрироваться придумай пароль и отправь его мне", inline=False)
+                await reaction.member.send(embed=embed)
     
     @commands.Cog.listener()
     async def on_message(self, ctx):
@@ -29,10 +31,14 @@ class Verify(commands.Cog):
                 code = self.api.connect.create_code(username)['code']
                 register = self.api.connect.register(code, ctx.content)
                 if register['success']:
-                    await ctx.author.send("Вы успешно зарегестрировались, войти вы можете на сайте: http://lavomerka.ml/login/")
+                    embed=discord.Embed(color=0x0be541)
+                    embed.add_field(name="Koper Verify", value="Вы успешно зарегестрировались, войти вы можете на сайте: http://lavomerka.ml/login/", inline=False)
+                    await ctx.author.send(embed=embed)
                 else:
                     if register['message'] == 'Данное имя пользователя уже занято':
-                        await ctx.author.send("Вы уже зарегестрировались")
+                        embed=discord.Embed(color=0x0be541)
+                        embed.add_field(name="Koper Verify", value="Вы уже зарегестрировались", inline=False)
+                        await ctx.author.send(embed=embed)
                     else:
                         await ctx.author.send(f"{register['message']}, попробуйте позже")
 
