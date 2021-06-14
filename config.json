@@ -1,0 +1,13 @@
+{
+    "bot": {
+        "token": "ODUyNDk1Mzg3ODQ2NTA4NTQ1.YMHqMw.AOVvHxA0vTPjclpg3eKSgfVZujo"
+    },
+    "cogs": [
+        "verify"
+    ],
+    "verify": {
+        "message_id": 852499368912748554,
+        "reaction": "👍"
+    },
+    "guild_id": 797077546251845632
+}
