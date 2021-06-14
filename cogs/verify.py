@@ -16,7 +16,7 @@ class Verify(commands.Cog):
     async def on_raw_reaction_add(self, reaction):
         if reaction.message_id == self.config['verify']['message_id']:
             if reaction.emoji.name == self.config['verify']['reaction']:
-                await reaction.member.send("Привет, я бот регистрации в системе Koper Connect для того что бы зарегестрироваться придумай пароль и отправь его мне")
+                await reaction.member.send("Привет, я бот регистрации в системе Koper Verify для того что бы зарегестрироваться придумай пароль и отправь его мне")
     
     @commands.Cog.listener()
     async def on_message(self, ctx):
