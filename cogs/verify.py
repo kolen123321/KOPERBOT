@@ -32,7 +32,7 @@ class Verify(commands.Cog):
                 register = self.api.connect.register(code, ctx.content)
                 if register['success']:
                     embed=discord.Embed(color=0x0be541)
-                    embed.add_field(name="Koper Verify", value="Вы успешно зарегестрировались, теперь вы можете авторизоваться на сайте: http://lavomerka.ml/login/", inline=False)
+                    embed.add_field(name="Koper Verify", value="Вы успешно зарегестрировались, теперь вы можете авторизоваться на сайте: http://lavomerka.ml/login/ или можете зайти в банк: http://kooper.ml/", inline=False)
                     await ctx.author.send(embed=embed)
                 else:
                     if register['message'] == 'Данное имя пользователя уже занято':
