@@ -17,7 +17,7 @@ class Verify(commands.Cog):
         if reaction.message_id == self.config['verify']['message_id']:
             if reaction.emoji.name == self.config['verify']['reaction']:
                 embed=discord.Embed(color=0x0be541)
-                embed.add_field(name="Koper Verify", value="Здравствуй, я бот регистрации в системе Koper Verify, для того что бы зарегистрироваться придумайте пароль и отправьте его мне.", inline=False)
+                embed.add_field(name="Koper Verify", value="Hello, I am a registration bot in the Koper Verify system, in order to register, come up with a password and send it to me.", inline=False)
                 await reaction.member.send(embed=embed)
     
     @commands.Cog.listener()
@@ -32,15 +32,15 @@ class Verify(commands.Cog):
                 register = self.api.connect.register(code, ctx.content)
                 if register['success']:
                     embed=discord.Embed(color=0x0be541)
-                    embed.add_field(name="Koper Verify", value="Вы успешно зарегестрировались, теперь вы можете авторизоваться на сайте: http://lavomerka.ml/login/ или можете зайти в банк: http://kooper.ml/", inline=False)
+                    embed.add_field(name="Koper Verify", value="You have successfully registered, now you can log in on the site: http://lavomerka.ml/login / or you can go to the bank: http://kooper.ml/", inline=False)
                     await ctx.author.send(embed=embed)
                 else:
-                    if register['message'] == 'Данное имя пользователя уже занято':
+                    if register['message'] == 'This username is already occupied':
                         embed=discord.Embed(color=0x0be541)
-                        embed.add_field(name="Koper Verify", value="Вы уже зарегестрировались", inline=False)
+                        embed.add_field(name="Koper Verify", value="Have you already registered", inline=False)
                         await ctx.author.send(embed=embed)
                     else:
-                        await ctx.author.send(f"{register['message']}, попробуйте позже")
+                        await ctx.author.send(f"{register['message']}, try again later")
 
 
 def setup(bot):
