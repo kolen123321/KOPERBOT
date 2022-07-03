@@ -25,4 +25,4 @@ class KoperApi:
             'connect': 'https://koperpapilavomerka.herokuapp.com/api/v1/connect/',
             'bank': 'https://koperpapilavomerka.herokuapp.com/api/v1/bank/'
         }
-        self.connect = ConnectApi(self.hosts['connect'], "django-insecure-n$r^s@#zln#9tyenczf4r%qd5o#-#&)(!q#^)m$x6hi!8snsic")
+        self.connect = ConnectApi(self.hosts['connect'], "secret")
